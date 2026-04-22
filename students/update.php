@@ -8,7 +8,7 @@ $class_name = $_POST['class_name'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 
-$sql = "UPDATE students SET first_name = ?, last_name = ?, age = ? class_name = ?, phone = ?, address = ? WHERE id = ?";
+$sql = "UPDATE students SET first_name = ?, last_name = ?, age = ?, class_name = ?, phone = ?, address = ? WHERE id = ?";
 $data = $conn->prepare($sql);
 $data->execute([$first_name, $last_name, $age, $class_name, $phone, $address, $id]);
 

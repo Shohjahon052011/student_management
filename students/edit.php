@@ -88,7 +88,7 @@ $student = $data->fetch()
         
         <div class="form-group">
             <label>Ism (First Name)</label>
-            <input type="hidden" name="first_name" value="<?= $student['first_name'] ?>" required>
+            <input type="text" name="first_name" value="<?= $student['first_name'] ?>" required>
         </div>
 
         <div class="form-group">

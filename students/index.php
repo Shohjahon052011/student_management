@@ -128,9 +128,9 @@ $cnt = 1;
                 <td><?= $student['phone'] ?></td>
                 <td><?= $student['address'] ?></td>
                 <td class="actions">
-                    <a href="#" class="btn btn-view">Ko'rish</a>
+                    <a href="show.php?id=<?= $student['id'] ?>" class="btn btn-view">Ko'rish</a>
                     <a href="edit.php?id=<?= $student['id'] ?>" class="btn btn-edit">Tahrirlash</a>
-                    <a href="delete.php?id=<?= $student['id'] ?> ?>" class="btn-delete" onclick="return confirm('Ochirasizmi!')">O'chirish</a>
+                    <a href="delete.php?id=<?= $student['id'] ?>" class="btn-delete" onclick="return confirm('Ochirasizmi!')">O'chirish</a>
                 </td>
             </tr>
             <?php endforeach; ?>
