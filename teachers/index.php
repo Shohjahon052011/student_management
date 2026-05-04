@@ -1,9 +1,9 @@
 <?php
 include "../config/db.php";
-$sql = "SELECT * FROM students";
+$sql = "SELECT * FROM teachers";
 $data = $conn->prepare($sql);
 $data->execute();
-$students = $data->fetchAll();
+$teachers = $data->fetchAll();
 $cnt = 1;
 ?>
 
@@ -12,7 +12,7 @@ $cnt = 1;
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Students Table</title>
+    <title>Teachers Table</title>
     <link rel="stylesheet" href="../assets/style.css">
     <style>
         body {
@@ -100,8 +100,8 @@ $cnt = 1;
 <div class="container">
 
     <div class="header">
-        <h2>Students</h2>
-        <a href="create.php" class="add-btn">+ Student qo'shish</a>
+        <h2>Teachers</h2>
+        <a href="create.php" class="add-btn">+ Teachers qo'shish</a>
     </div>
 
     <table>
@@ -111,27 +111,27 @@ $cnt = 1;
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Age</th>
-                <th>Class</th>
+                <th>Subject</th>
                 <th>Phone</th>
                 <th>Address</th>
-                <th>Actions</th>
+                <th>Experience</th>
+                <th>Amallar</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach($students as $student): ?>
+            <?php foreach($teachers as $teacher): ?>
                  <tr>
                 <td><?= $cnt++ ?></td>
-                <td><?= $student['first_name'] ?></td>
-                <td><?= $student['last_name'] ?></td>
-                <td><?= $student['age'] ?></td>
-                <td><?= $student['class_name'] ?></td>
-                <td><?= $student['phone'] ?></td>
-                <td><?= $student['address'] ?></td>
+                <td><?= $teacher['first_name'] ?></td>
+                <td><?= $teacher['last_name'] ?></td>
+                <td><?= $teacher['subject'] ?></td>
+                <td><?= $teacher['phone'] ?></td>
+                <td><?= $teacher['address'] ?></td>
+                <td><?= $teacher['experience'] ?></td>
                 <td class="actions">
-                    <a href="show.php?id=<?= $student['id'] ?>" class="btn btn-view">Ko'rish</a>
-                    <a href="edit.php?id=<?= $student['id'] ?>" class="btn btn-edit">Tahrirlash</a>
-                    <a href="delete.php?id=<?= $student['id'] ?>" class="btn-delete" onclick="return confirm('Ochirasizmi!')">O'chirish</a>
+                    <a href="show.php?id=<?= $teacher['id'] ?>" class="btn btn-view">Ko'rish</a>
+                    <a href="edit.php?id=<?= $teacher['id'] ?>" class="btn btn-edit">Tahrirlash</a>
+                    <a href="delete.php?id=<?= $teacher['id'] ?>" class="btn-delete" onclick="return confirm('Ochirasizmi!')">O'chirish</a>
                 </td>
             </tr>
             <?php endforeach; ?>

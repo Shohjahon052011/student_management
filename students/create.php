@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Student qo'shish</title>
+    <link rel="stylesheet" href="../assets/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,7 +71,7 @@
     </style>
 </head>
 <body>
-
+    <?php include "../layouts/header.php"?>
 <div class="form-container">
     <h2>Student qo'shish</h2>
     <form action="store.php" method="POST">

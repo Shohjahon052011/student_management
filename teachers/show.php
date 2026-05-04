@@ -1,16 +1,16 @@
 <?php
 include "../config/db.php";
 $id = $_GET['id'];
-$sql = "SELECT * FROM students WHERE id =?";
+$sql = "SELECT * FROM teachers WHERE id =?";
 $data = $conn->prepare($sql);
 $data->execute([$id]);
-$student = $data->fetch();
+$teachers = $data->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Student ma'lumotlari</title>
+    <title>Teachers ma'lumotlari</title>
     <link rel="stylesheet" href="../assets/style.css">
     <style>
         body {
@@ -87,39 +87,42 @@ $student = $data->fetch();
 <body>
     <?php include "../layouts/header.php"?>
 <div class="card">
-    <h2>Student ma'lumotlari</h2>
+    <h2>Teachers ma'lumotlari</h2>
 
     <div class="info">
         <div class="label">Ism</div>
-        <div class="value"><?= $student['first_name'] ?></div>
+        <div class="value"><?= $teachers['first_name'] ?></div>
     </div>
 
     <div class="info">
         <div class="label">Familiya</div>
-        <div class="value"><?= $student['last_name'] ?></div>
+        <div class="value"><?= $teachers['last_name'] ?></div>
     </div>
 
     <div class="info">
         <div class="label">Yosh</div>
-        <div class="value"><?= $student['age'] ?></div>
-    </div>
-
-    <div class="info">
-        <div class="label">Sinf</div>
-        <div class="value"><?= $student['class_name'] ?></div>
+        <div class="value"><?= $teachers['subject'] ?></div>
     </div>
 
     <div class="info">
         <div class="label">Telefon</div>
-        <div class="value"><?= $student['phone'] ?></div>
+        <div class="value"><?= $teachers['phone'] ?></div>
     </div>
 
     <div class="info">
         <div class="label">Manzil</div>
-        <div class="value"><?= $student['address'] ?></div>
+        <div class="value"><?= $teachers['address'] ?></div>
     </div>
     
+       <div class="info">
+        <div class="label">Sinf</div>
+        <div class="value"><?= $teachers['experience'] ?></div>
+    </div>
 </div>
 
+   <div class="info">
+        <div class="label">Sinf</div>
+        <div class="value"><?= $teachers['created_at'] ?></div>
+    </div>
 </body>
 </html>

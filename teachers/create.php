@@ -1,17 +1,9 @@
-<?php
-include "../config/db.php";
-$id = $_GET['id'];
-$sql = "SELECT * FROM students WHERE id = ?";
-$data = $conn->prepare($sql);
-$data->execute([$id]);
-$student = $data->fetch()
-?>
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Studentni tahrirlash</title>
-    <link rel="stylesheet" href="../assets/style.css">
+    <title>Teachers qo'shish</title>
+    <link rel="stylesheet" href="..assets/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -81,42 +73,38 @@ $student = $data->fetch()
 <body>
     <?php include "../layouts/header.php"?>
 <div class="form-container">
-    <h2>Student qo'shish</h2>
-    <form action="update.php" method="POST">
-                <div class="form-group">
-            <input type="hidden" name="id" value="<?= $student['id']?>" required>
-        </div>
+    <h2>Teachers qo'shish</h2>
+    <form action="store.php" method="POST">
         
         <div class="form-group">
             <label>Ism (First Name)</label>
-            <input type="text" name="first_name" value="<?= $student['first_name'] ?>" required>
+            <input type="ism" name="first_name" required>
         </div>
 
         <div class="form-group">
             <label>Familiya (Last Name)</label>
-            <input type="text" name="last_name" value="<?= $student['last_name'] ?>" required>
+            <input type="familya" name="last_name" required>
         </div>
 
         <div class="form-group">
-            <label>Yosh (Age)</label>
-            <input type="number" name="age" value="<?= $student['age'] ?>" required>
-        </div>
-
-        <div class="form-group">
-            <label>Sinf (Class Name)</label>
-            <input type="text" name="class_name" value="<?= $student['class_name'] ?>" required>
+            <label>Fan (Subject)</label>
+            <input type="fan" name="subject" required>
         </div>
 
         <div class="form-group">
             <label>Telefon (Phone)</label>
-            <input type="tel" name="phone" value="<?= $student['phone'] ?>" required>
+            <input type="telefon" name="phone" required>
         </div>
 
         <div class="form-group">
             <label>Manzil (Address)</label>
-            <textarea name="address" required><?= $student['address'] ?></textarea>
+            <input type="manzil" name="address" required>
         </div>
 
+        <div class="form-group">
+            <label>Tajriba yili (Experience)</label>
+            <textarea type="tajriba yili" name="experience" required></textarea>
+        </div>
         <button type="submit" class="btn">Saqlash</button>
 
     </form>
